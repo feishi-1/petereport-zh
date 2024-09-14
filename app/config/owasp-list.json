@@ -1,0 +1,134 @@
+[
+{
+    "model": "preport.db_owasp",
+    "pk": 1,
+    "fields": {
+        "owasp_id": "0",
+        "owasp_year": "0",
+        "owasp_full_id": "0",
+        "owasp_name": "信息不足，无法分类",
+        "owasp_description": "关于该问题的信息不足，无法对其进行分类；细节未知或未指明。",
+        "owasp_url": "https://owasp.org/Top10/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 2,
+    "fields": {
+        "owasp_id": "1",
+        "owasp_year": "2021",
+        "owasp_full_id": "A01:2021",
+        "owasp_name": "访问控制损坏",
+        "owasp_description": "访问控制强制执行策略，使用户无法在其预期权限之外进行操作。故障通常会导致未经授权的信息泄露、修改或破坏所有数据或在用户限制之外执行业务功能。",
+        "owasp_url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 3,
+    "fields": {
+        "owasp_id": "2",
+        "owasp_year": "2021",
+        "owasp_full_id": "A02:2021",
+        "owasp_name": "加密故障",
+        "owasp_description": "第一件事是确定传输中和静止数据的保护需求。例如，密码、信用卡号、健康记录、个人信息和商业秘密需要额外的保护，主要是如果这些数据属于隐私法，如欧盟的《通用数据保护条例》（GDPR），或金融数据保护，如PCI数据安全标准（PCI DSS）。",
+        "owasp_url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 4,
+    "fields": {
+        "owasp_id": "3",
+        "owasp_year": "2021",
+        "owasp_full_id": "A03:2021",
+        "owasp_name": "注入",
+        "owasp_description": "在以下情况下，应用程序容易受到攻击：1/应用程序未验证、过滤或净化用户提供的数据。2/没有上下文感知转义的动态查询或非参数化调用直接在解释器中使用。3/在对象关系映射（ORM）搜索参数中使用敌对数据来提取额外的敏感记录。4/直接使用或连接恶意数据。SQL或命令包含动态查询、命令或存储过程中的结构和恶意数据。",
+        "owasp_url": "https://owasp.org/Top10/A03_2021-Injection/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 5,
+    "fields": {
+        "owasp_id": "4",
+        "owasp_year": "2021",
+        "owasp_full_id": "A04:2021",
+        "owasp_name": "不安全的设计",
+        "owasp_description": "不安全设计是一个广泛的类别，代表了不同的弱点，表现为“缺失或无效的控制设计”。不安全设计不是所有其他十大风险类别的来源。不安全的设计和不安全的实现是有区别的。我们区分设计缺陷和实现缺陷是有原因的，它们有不同的根本原因和补救措施。安全设计仍然可能存在实现缺陷，导致可能被利用的漏洞。不安全的设计无法通过完美的实现来修复，因为根据定义，从未创建过所需的安全控制来防御特定的攻击。导致设计不安全的因素之一是，正在开发的软件或系统缺乏固有的业务风险分析，因此无法确定需要什么级别的安全设计。",
+        "owasp_url": "https://owasp.org/Top10/A04_2021-Insecure_Design/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 6,
+    "fields": {
+        "owasp_id": "5",
+        "owasp_year": "2021",
+        "owasp_full_id": "A05:2021",
+        "owasp_name": "安全配置错误",
+        "owasp_description": "如果应用程序存在以下情况，则该应用程序可能存在漏洞：1/在应用程序堆栈的任何部分缺少适当的安全强化，或者云服务上的权限配置不当。2/启用或安装了不必要的功能（例如，不必要的端口、服务、页面、帐户或权限）。3/默认帐户及其密码仍处于启用状态且未更改。4/错误处理会向用户显示堆栈跟踪或其他信息量过大的错误消息。5/对于升级的系统，最新的安全功能被禁用或配置不安全。6/应用程序服务器、应用程序框架（如Struts、Spring、ASP.NET）、库、数据库等中的安全设置未设置为安全值。7/服务器不发送安全标头或指令，或者它们未设置为安全值。8/软件已过时或易受攻击（见A06:2021-易受攻击和过时的组件）。如果没有协调一致、可重复的应用程序安全配置过程，系统将面临更高的风险。",
+        "owasp_url": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 7,
+    "fields": {
+        "owasp_id": "6",
+        "owasp_year": "2021",
+        "owasp_full_id": "A06:2021",
+        "owasp_name": "易受攻击和过时的组件",
+        "owasp_description": "您可能很容易受到攻击：1/如果您不知道您使用的所有组件（客户端和服务器端）的版本。这包括您直接使用的组件以及嵌套的依赖关系。2/如果软件易受攻击、不受支持或已过时。这包括操作系统、web/应用程序服务器、数据库管理系统（DBMS）、应用程序、API和所有组件、运行时环境和库。3/如果您没有定期扫描漏洞并订阅与您使用的组件相关的安全公告。4/如果您没有以基于风险的方式及时修复或升级底层平台、框架和依赖关系。这通常发生在修补是每月或每季度在变更控制下进行的任务的环境中，使组织面临数天或数月不必要的固定漏洞暴露。5/如果软件开发人员没有测试更新、升级或修补的库的兼容性。6/如果您没有保护组件的配置（请参阅A05:2021-安全配置错误）。",
+        "owasp_url": "https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 8,
+    "fields": {
+        "owasp_id": "7",
+        "owasp_year": "2021",
+        "owasp_full_id": "A07:2021",
+        "owasp_name": "识别和身份验证失败",
+        "owasp_description": "确认用户的身份、身份验证和会话管理对于防止与身份验证相关的攻击至关重要。如果应用程序存在以下情况，则可能存在身份验证漏洞：1/允许自动攻击，如凭证填充，攻击者有一系列有效的用户名和密码。2/允许暴力破解或其他自动攻击。3/允许默认、弱或众所周知的密码，如Password1或admin/admin。4/使用弱或无效的凭证恢复和忘记密码的过程，如基于知识的答案，这些过程无法确保安全。5/使用纯文本、加密或弱散列密码数据存储（见A02:2021-加密失败）。6/缺少或无效的多因素身份验证。7/在URL中显示会话标识符。8/成功登录后重用会话标识符。9/不能正确地使会话ID无效。用户会话或身份验证令牌（主要是单点登录（SSO）令牌）在注销或不活动期间没有正确失效。",
+        "owasp_url": "https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 9,
+    "fields": {
+        "owasp_id": "8",
+        "owasp_year": "2021",
+        "owasp_full_id": "A08:2021",
+        "owasp_name": "软件和数据完整性故障",
+        "owasp_description": "软件和数据完整性故障与无法防止完整性违规的代码和基础设施有关。一个例子是，应用程序依赖于来自不受信任的来源、存储库和内容交付网络（CDN）的插件、库或模块。不安全的CI/CD管道可能会引入未经授权的访问、恶意代码或系统危害的可能性。最后，许多应用程序现在都包括自动更新功能，在没有充分完整性验证的情况下下载更新，并将其应用于以前受信任的应用程序。攻击者可能会上传自己的更新，以便在所有安装上分发和运行。另一个例子是，对象或数据被编码或序列化为攻击者可以看到和修改的结构，容易受到不安全的反序列化的攻击。",
+        "owasp_url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 10,
+    "fields": {
+        "owasp_id": "9",
+        "owasp_year": "2021",
+        "owasp_full_id": "A09:2021",
+        "owasp_name": "安全日志记录和监控失败",
+        "owasp_description": "回到2021年OWASP前10名，该类别旨在帮助检测、升级和应对主动违规行为。没有日志记录和监控，就无法检测到违规行为。任何时候都会发生日志记录、检测、监控和主动响应不足的情况：1/可审计事件，如登录、登录失败和高价值事务，都不会被记录。2/警告和错误不会生成任何、不充分或不清楚的日志消息。3/应用程序和API的日志不会受到可疑活动的监控。4/日志仅存储在本地。5/适当的警报阈值和响应升级流程不到位或无效。6/动态应用程序安全测试（DAST）工具（如OWASP ZAP）的渗透测试和扫描不会触发警报。7/应用程序无法实时或近乎实时地检测、升级或警报主动攻击。通过使日志记录和警报事件对用户或攻击者可见，您很容易受到信息泄露的攻击（请参阅A01:2021-破坏访问控制）。",
+        "owasp_url": "https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/"
+    }
+},
+{
+    "model": "preport.db_owasp",
+    "pk": 11,
+    "fields": {
+        "owasp_id": "10",
+        "owasp_year": "2021",
+        "owasp_full_id": "A10:2021",
+        "owasp_name": "服务器端请求伪造（SSRF）",
+        "owasp_description": "每当web应用程序在不验证用户提供的URL的情况下获取远程资源时，都会出现SSRF缺陷。它允许攻击者强制应用程序将精心编制的请求发送到意外的目的地，即使受到防火墙、VPN或其他类型的网络访问控制列表（ACL）的保护。随着现代web应用程序为最终用户提供方便的功能，获取URL成为一种常见的情况。因此，SSRF的发生率正在增加。此外，由于云服务和架构的复杂性，SSRF的严重性越来越高。",
+        "owasp_url": "https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/"
+    }
+}
+]

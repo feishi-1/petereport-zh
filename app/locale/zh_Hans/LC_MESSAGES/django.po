@@ -1,0 +1,809 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-06 23:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "English"
+msgstr "英语"
+
+msgid "Spanish"
+msgstr "西班牙"
+
+msgid "French"
+msgstr "法语"
+
+msgid "Chinese"
+msgstr "中文"
+
+msgid "(Select a customer)"
+msgstr "（选择客户）"
+
+msgid "Product Name"
+msgstr "产品名称"
+
+msgid "(Select a product)"
+msgstr "（选择一个产品）"
+
+msgid "Report Name"
+msgstr "报告名称"
+
+msgid "(Select severity)"
+msgstr "（选择严重性）"
+
+msgid "Critical"
+msgstr "超高危"
+
+msgid "High"
+msgstr "高危"
+
+msgid "Medium"
+msgstr "中危"
+
+msgid "Low"
+msgstr "低危"
+
+msgid "Info"
+msgstr "信息"
+
+msgid "None"
+msgstr "无影响"
+
+msgid "(Select status)"
+msgstr "（选择状态）"
+
+msgid "Open"
+msgstr "开"
+
+msgid "Closed"
+msgstr "关"
+
+msgid "Critical/High/Medium/Low/Info/None"
+msgstr "严重/高/中/低/信息/无"
+
+msgid "Open/Close"
+msgstr "开/关"
+
+msgid "(Select a CWE)"
+msgstr "（选择CWE）"
+
+msgid "(Select an OWASP ID)"
+msgstr "（选择一个OWASP ID）"
+
+msgid "Finding title"
+msgstr "漏洞标题"
+
+msgid "CVSS Vector"
+msgstr "CVSS矢量"
+
+msgid "CVSS Score"
+msgstr "CVSS评分"
+
+msgid "(Select a finding)"
+msgstr "（选择一个漏洞）"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "(Select a group)"
+msgstr "选择一组"
+
+msgid "E-mail address"
+msgstr "邮箱地址"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Attack Tree"
+msgstr "攻击树"
+
+msgid "CWE Name"
+msgstr "CWE名称"
+
+msgid "CWE Description"
+msgstr "CWE描述"
+
+msgid "OWASP Name"
+msgstr "OWASP名称"
+
+msgid "OWASP Description"
+msgstr "OWASP描述"
+
+msgid "OWASP URL"
+msgstr "OWASP地址"
+
+msgid "Company name"
+msgstr "公司名"
+
+msgid "Company website"
+msgstr "公司网址"
+
+msgid "Company address"
+msgstr "公司地址"
+
+msgid "Report subject"
+msgstr "报告主题"
+
+msgid "Company picture"
+msgstr "公司logo"
+
+msgid "Customer Name"
+msgstr "客户名称"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Appendix"
+msgstr "附录"
+
+msgid "Report"
+msgstr "报告"
+
+msgid "Home"
+msgstr "主页"
+
+msgid "Finding"
+msgstr "漏洞"
+
+msgid "Appendix Title"
+msgstr "附录标题"
+
+msgid "Appendix Description"
+msgstr "附录描述"
+
+msgid "Save and finish"
+msgstr "保存并完成"
+
+msgid "Save and add a new appendix"
+msgstr "保存并添加新附录"
+
+msgid "Appendix Details"
+msgstr "附录详细信息"
+
+msgid "Add Appendix"
+msgstr "添加附录"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "View"
+msgstr "查看"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Are you sure?"
+msgstr "确定吗?"
+
+msgid "Delete appendix"
+msgstr "删除附录"
+
+msgid "Close"
+msgstr "关"
+
+msgid "Delete Appendix"
+msgstr "删除附录"
+
+msgid "Attack Flow"
+msgstr "攻击流程"
+
+msgid "Add New Attack Flow"
+msgstr "添加新攻击流程"
+
+msgid "Attack Flow Title"
+msgstr "攻击流程标题"
+
+msgid "Delete Attack Flow"
+msgstr "删除攻击流程"
+
+msgid "Findings"
+msgstr "漏洞列表"
+
+msgid "Severity"
+msgstr "严重程度"
+
+msgid "CWE"
+msgstr "CWE"
+
+msgid "will not appear in the report"
+msgstr "不会出现在报告中"
+
+msgid "Attach Attack Flow"
+msgstr "附加攻击流程"
+
+msgid "User Add"
+msgstr "用户添加"
+
+msgid "Add User"
+msgstr "添加用户"
+
+msgid "User details"
+msgstr "用户详情"
+
+msgid "Save User"
+msgstr "保存用户"
+
+msgid "User List"
+msgstr "用户列表"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "User"
+msgstr "用户"
+
+msgid "Email"
+msgstr "邮箱"
+
+msgid "Active"
+msgstr "激活"
+
+msgid "Group"
+msgstr "组"
+
+msgid "Admin"
+msgstr "管理员"
+
+msgid "Delete User"
+msgstr "删除用户"
+
+msgid "Delete user"
+msgstr "删除用户"
+
+msgid "Customers"
+msgstr "客户"
+
+msgid "Customer"
+msgstr "客户"
+
+msgid "Add or Edit customer"
+msgstr "添加客户"
+
+msgid "Customer details"
+msgstr "客户详情"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Contact"
+msgstr "联系方式"
+
+msgid "Save Customer"
+msgstr "保存客户"
+
+msgid "Customers List"
+msgstr "客户列表"
+
+msgid "Delete customer"
+msgstr "删除客户"
+
+msgid "Customer Details"
+msgstr "客户详情"
+
+msgid "Product"
+msgstr "产品"
+
+msgid "Critical/High Severity Finding"
+msgstr "严重/高严重性漏洞"
+
+msgid "Contact Email"
+msgstr "联系邮箱"
+
+msgid "Overall Breakdown by Categories"
+msgstr "按类别总体细分"
+
+msgid "Reports"
+msgstr "报告"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Delete Report"
+msgstr "删除报告"
+
+msgid "Reports generated - Deliverables"
+msgstr "生成的报告-可交付成果"
+
+msgid "Generated date"
+msgstr "生成日期"
+
+msgid "File"
+msgstr "文件"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Delete Deliverable"
+msgstr "删除可交付成果"
+
+msgid "Add CWE"
+msgstr "添加CWE"
+
+msgid "CWE List"
+msgstr "CWE列表"
+
+msgid "CWE details"
+msgstr "CWE详情"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Save CWE"
+msgstr "保存CWE"
+
+msgid "CWEs"
+msgstr "CWE"
+
+msgid "Delete CWE"
+msgstr "删除CWE"
+
+msgid "DefectDojo Import"
+msgstr "缺陷导入"
+
+msgid "Import DefectDojo Findings into"
+msgstr "将缺陷结果导入"
+
+msgid "DefectDojo Product Findings"
+msgstr "缺陷产品漏洞结果"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Import Finding"
+msgstr "导入漏洞"
+
+msgid "DefectDojo Products"
+msgstr "缺陷产品"
+
+msgid "Import All Findings"
+msgstr "导入全部漏洞"
+
+msgid "View Findings"
+msgstr "查看漏洞"
+
+msgid "Deliverables List"
+msgstr "可交付成果清单"
+
+msgid "Deliverables"
+msgstr "可交付成果"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Custom Fields"
+msgstr "自定义字段"
+
+msgid "Custom Field"
+msgstr "自定义字段"
+
+msgid "Custom Field Title"
+msgstr "自定义字段标题"
+
+msgid "Custom Field Description"
+msgstr "自定义字段描述"
+
+msgid "Save and add a new custom field"
+msgstr "保存且新增一个新自定义字段"
+
+msgid "Custom fields"
+msgstr "自定义字段"
+
+msgid "Delete custom field"
+msgstr "删除自定义字段"
+
+msgid "Delete Custom Field"
+msgstr "删除自定义字段"
+
+msgid "Import Findings"
+msgstr "导入漏洞"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "CVSS v4.0 calculator"
+msgstr "CVSS v4.0计算器"
+
+msgid "Finding Details"
+msgstr "漏洞详情"
+
+msgid "Edit Finding"
+msgstr "编辑漏洞"
+
+msgid "Finding custom fields"
+msgstr "漏洞自定义字段"
+
+msgid "Add custom field"
+msgstr "添加自定义字段"
+
+msgid "Summary"
+msgstr "摘要"
+
+msgid "Finding ID"
+msgstr "漏洞ID"
+
+msgid "OWASP"
+msgstr "OWASP"
+
+msgid "Location"
+msgstr "位置"
+
+msgid "Impact"
+msgstr "影响"
+
+msgid "Proof of Concept"
+msgstr "证明与验证"
+
+msgid "Recommendation"
+msgstr "修复建议"
+
+msgid "References"
+msgstr "工具书类"
+
+msgid "Additional Notes"
+msgstr "附加说明"
+
+msgid "CVSS"
+msgstr "CVSS"
+
+msgid "Clone"
+msgstr "克隆"
+
+msgid "Delete Finding"
+msgstr "删除漏洞结果"
+
+msgid "Clone Finding"
+msgstr "克隆漏洞"
+
+msgid "Add Finding"
+msgstr "新增漏洞"
+
+msgid "Add Finding from template"
+msgstr "从模板添加漏洞结果"
+
+msgid "Upload Findings"
+msgstr "上传漏洞结果"
+
+msgid "Import Findings from DefectDojo"
+msgstr "从缺陷中导入漏洞"
+
+msgid "Add Findings"
+msgstr "添加漏洞"
+
+msgid "Add Finding Template"
+msgstr "添加漏洞模版"
+
+msgid "Templates"
+msgstr "模版"
+
+msgid "Add Template"
+msgstr "添加模版"
+
+msgid "Finding Template"
+msgstr "漏洞模版"
+
+msgid "Templates List"
+msgstr "模版列表"
+
+msgid "Finding Templates list"
+msgstr "漏洞模版列表"
+
+msgid "Delete Template"
+msgstr "删除模版"
+
+msgid "Template Details"
+msgstr "模版详情"
+
+msgid "Finding Templates"
+msgstr "漏洞模版"
+
+msgid "Add finding from template"
+msgstr "从模板中添加漏洞结果"
+
+msgid "Add Finding to Report"
+msgstr "将漏洞添加到报告中"
+
+msgid "Findings CSV Document"
+msgstr "漏洞CSV文档"
+
+msgid "Comma-separated values (CSV) file format"
+msgstr "逗号分隔值（CSV）文件格式"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Dashboard"
+msgstr "仪表板"
+
+msgid "Configuration"
+msgstr "配置"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "All Customers"
+msgstr "所有客户"
+
+msgid "Add Customer"
+msgstr "增加客户"
+
+msgid "Products"
+msgstr "产品"
+
+msgid "All Products"
+msgstr "所有产品"
+
+msgid "Add Product"
+msgstr "添加产品"
+
+msgid "All Reports"
+msgstr "所有报告"
+
+msgid "Add Report"
+msgstr "添加报告"
+
+msgid "All Deliverables"
+msgstr "所有可交付成果"
+
+msgid "Open Findings"
+msgstr "公开漏洞结果"
+
+msgid "Closed Findings"
+msgstr "关闭漏洞结果"
+
+msgid "Finding templates"
+msgstr "漏洞模版"
+
+msgid "Add Finding template"
+msgstr "添加漏洞模版"
+
+msgid "OWASP List"
+msgstr "OWASP列表"
+
+msgid "Add OWASP"
+msgstr "添加OWASP"
+
+msgid "All rights reserved."
+msgstr "保留所有权利。"
+
+msgid "Deliverable"
+msgstr "可交付成果"
+
+msgid "Critical/High Finding"
+msgstr "关键/高漏洞"
+
+msgid "Vulnerabilities by status"
+msgstr "按状态列出的漏洞"
+
+msgid "Overall Breakdown by OWASP Top Ten Application Security Risks"
+msgstr "OWASP十大应用程序安全风险的总体细分"
+
+msgid "Vulnerabilities by severity"
+msgstr "按严重程度划分的漏洞"
+
+msgid "Top 10 risk findings"
+msgstr "十大风险漏洞"
+
+msgid "Risk Score"
+msgstr "风险评分"
+
+msgid "Vulnerabilities"
+msgstr "漏洞"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Current Language"
+msgstr "当前语言"
+
+msgid "Logout"
+msgstr "注销"
+
+msgid "session"
+msgstr "会话"
+
+msgid "Add or Edit OWASP"
+msgstr "添加或编辑OWASP"
+
+msgid "OWASP details"
+msgstr "OWASP详情"
+
+msgid "Save OWASP"
+msgstr "保存OWASP"
+
+msgid "OWASPs List"
+msgstr "OWASP列表"
+
+msgid "OWASPs"
+msgstr "OWASP"
+
+msgid "Delete OWASP"
+msgstr "删除OWASP"
+
+msgid "Add or Edit product"
+msgstr "添加或编辑产品"
+
+msgid "Product details"
+msgstr "产品详情"
+
+msgid "Product Description"
+msgstr "产品描述"
+
+msgid "Save Product"
+msgstr "保存产品"
+
+msgid "Product List"
+msgstr "产品列表"
+
+msgid "Delete product"
+msgstr "删除产品"
+
+msgid "Product Details"
+msgstr "产品详情"
+
+msgid "Medium Severity Finding"
+msgstr "中等严重性漏洞"
+
+msgid "Clone Report and Findings"
+msgstr "克隆报告和漏洞"
+
+msgid "Click here to login again."
+msgstr "单击此处重新登录。"
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Sign in to start your session"
+msgstr "登录以开始会话"
+
+msgid "Sign In"
+msgstr "登录"
+
+msgid "Add or Edit Report"
+msgstr "添加或编辑报告"
+
+msgid "Report details"
+msgstr "报告详细信息"
+
+msgid "Report ID"
+msgstr "报告ID"
+
+msgid "Report Title"
+msgstr "报告标题"
+
+msgid "Executive Summary"
+msgstr "执行摘要"
+
+msgid "Executive summary"
+msgstr "执行摘要"
+
+msgid "Scope"
+msgstr "渗透测试范围"
+
+msgid "Out of scope"
+msgstr "非测试范围"
+
+msgid "Methodology"
+msgstr "测试方法"
+
+msgid "Report date"
+msgstr "报告日期"
+
+msgid "Audit dates"
+msgstr "审计日期"
+
+msgid "Save Report"
+msgstr "保存报告"
+
+msgid "Report List"
+msgstr "报告列表"
+
+msgid "Report Details"
+msgstr "报告详情"
+
+msgid "Attack Flows"
+msgstr "攻击流程"
+
+msgid "Markdown"
+msgstr "Markdown"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Jupyter"
+msgstr "Jupyter"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Creation date"
+msgstr "创建日期"
+
+msgid "Breakdown by Severity"
+msgstr "按严重程度细分"
+
+msgid "Breakdown by OWASP Top Ten Application Security Risks"
+msgstr "按OWASP十大应用程序安全风险细分"
+
+msgid "Out of Scope"
+msgstr "非测试范围"
+
+msgid "Add Attack Flow"
+msgstr "添加攻击流程"
+
+msgid "Edit settings"
+msgstr "编辑设置"
+
+msgid "Company Name"
+msgstr "公司名称"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Bad image format."
+msgstr "图像格式错误。"
+
+msgid "Maximum image file is %(size) MB."
+msgstr "最大图像文件为%（大小）MB。"
+
+msgid "Invalid request!"
+msgstr "无效请求！"
+
+msgid "# Additional Notes"
+msgstr "#附加说明"
+
+msgid "**Additional notes**"
+msgstr "**附加说明**"
+
+msgid "**Attack Flow**"
+msgstr "**攻击流程**"
+
+msgid "Contents"
+msgstr "内容"
+
+msgid "Project Overview"
+msgstr "项目概况"
+
+msgid "Summary of Findings Identified"
+msgstr "漏洞汇总总结"
+
+msgid "Recommendations"
+msgstr "修复建议"
+
+msgid "In Scope"
+msgstr "测试范围"
+
+
+msgid "Figure"
+msgstr "图"
+
+msgid "Breakdown by CWE Categories"
+msgstr "按CWE类别细分"
+
+msgid "Breakdown by OWASP Categories"
+msgstr "按OWASP类别细分"
+
+msgid "Findings and Risk Analysis"
+msgstr "漏洞结果和风险分析"
+
+msgid "Save and add a new finding"
+msgstr "保存并添加新漏洞"

@@ -1,0 +1,195 @@
+{% extends 'home/template.html' %}
+{% load i18n %}
+{% load bleach_tags %}
+
+{% block title %} {% translate "Reports" %} {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="/static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>{% translate "Reports" %}</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/">{% translate "Home" %}</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'report_list' %}">{% translate "Reports" %}</a></li>
+          <li class="breadcrumb-item active">{% translate "Add or Edit Report" %}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+
+            <div class="card card-outline card-success">
+              <div class="card-header">
+                <h3 class="card-title">{% translate "Report details" %}</h3>
+              </div>
+              
+              <form role="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Product" %}</label>
+                      <div class="col-md-10 col-sm-10 col-xs-12">
+                        {{ form.product }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Report ID" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.report_id }}
+                    </div>
+                  </div>
+   
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Report Title" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.title }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Executive summary" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.executive_summary }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Scope" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.scope }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Out of scope" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.outofscope }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Methodology" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.methodology }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Recommendation" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.recommendation }}
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Report date" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                          </span>
+                        </div>
+                        {{ form.report_date }}
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Audit dates" %}</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                          </span>
+                        </div>
+                        {{ form.audit }}
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+
+                {% if form.errors %}
+                   {% for field in form %}
+                       {% for error in field.errors %} 
+                          <div class="container">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="alert alert-danger alert-dismissible ">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                              <h5><i class="icon fas fa-ban"></i> Error</h5>
+                              {{ field.name }}: {{ error|escape }}
+                              </div>
+                            </div>
+                          </div>
+                       {% endfor %}
+                   {% endfor %}
+                {% endif %}
+                
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-success">{% translate "Save Report" %}</button>
+                </div>
+              </form>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
+{% block javascripts %}
+  {{ block.super }}
+
+<script src="/static/plugins/moment/moment.min.js"></script>
+<script src="/static/plugins/inputmask/jquery.inputmask.min.js"></script>
+<script src="/static/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/static/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script>
+  $(function () {
+    //Date range picker
+    $('#audit').daterangepicker({
+      locale: {
+        format: 'YYYY-MM-DD'
+      }
+    });
+
+    //Date picker
+    $('#reportdate').datetimepicker({
+        format: 'L'
+    });
+
+  })
+</script>
+
+{% endblock javascripts %}

@@ -1,0 +1,248 @@
+{% extends 'home/template.html' %}
+
+{% load i18n %}
+{% load bleach_tags %}
+
+{% block title %} {% translate "Findings" %} {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+  
+
+
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>{{DB_report_query.title}} {% translate "Findings" %}</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/">{% translate "Home" %}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'customer_view' DB_report_query.product.customer.pk %}">{{ DB_report_query.product.customer.name | bleach}}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'product_view' DB_report_query.product.pk %}">{{ DB_report_query.product.name | bleach}}</a></li>
+            <li class="breadcrumb-item active"><a href="{% url 'report_view' DB_report_query.pk %}">{{ DB_report_query.title}}</a></li>
+          </ol>
+        </div>
+      </div>
+
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          {% if user.groups.all.0|stringformat:'s' == "administrator" %}
+            <a href="{% url 'finding_add' DB_report_query.pk %}"><button type="button" class="btn btn-danger"><i class="fa fa-edit"></i> {% translate "Add Finding" %}</button></a>
+            <a href="{% url 'templateaddfinding' DB_report_query.pk %}"><button type="button" class="btn btn-warning"><i class="fa fa-edit"></i> {% translate "Add Finding from template" %}</button></a>
+            <a href="{% url 'upload_csv_findings' DB_report_query.pk %}"><button type="button" class="btn btn-info"><i class="fa fa-upload"></i> {% translate "Upload Findings" %}</button></a>
+            <a href="{% url 'defectdojo_products' DB_report_query.pk %}"><button type="button" class="btn btn-success"><i class="fa fa-upload"></i> {% translate "Import Findings from DefectDojo" %}</button></a>
+          {% endif %}
+
+        </div>
+      <br>
+
+    </div>
+  </section>
+
+
+  <section class="content">
+
+    <div class="container-fluid">
+      <div class="card card-outline card-danger">
+        <div class="card-header">
+          <h3 class="card-title">{{ count_finding_query }} {% translate "Findings" %}</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-md-12">
+
+
+            {% if count_finding_query == 0 %}
+
+              <a href="{% url 'finding_add' DB_report_query.pk %}"><button type="button" class="btn btn-success btn-xm">{% translate "Add Findings" %}</button></a>
+
+            {% else %}
+
+                  <table id="findinglist" class="table table-bordered table-hover"> 
+
+                        <thead>
+                          <tr>
+                            <th style="width: 40%">{% translate "Title" %}</th>
+                            <th style="width: 5%">{% translate "Status" %}</th>
+                            <th style="width: 5%">{% translate "Severity" %}</th>
+                            <th style="width: 10%">{% translate "CVSS Score" %}</th>
+                            <th style="width: 5%">{% translate "CWE" %}</th>
+                            <th style="width: 5%">{% translate "OWASP" %}</th>
+                            <th style="width: 30%"class="text-center">{% translate "Actions" %}</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          {% for finding in DB_finding_query %}
+                          <tr>
+                                  <td>
+                                      {{ finding.title | safe| bleach}}
+                                  </td>
+                                  <td>
+                                    {{ finding.status | safe | bleach}}
+                                  </td>
+                                  <td>
+                                                                      
+                                        {% if finding.severity == "Critical" %}
+                                            <b><font color="#CC0000">{{ finding.severity }}</font></b>
+                                        {% elif finding.severity == "High" %}
+                                            <b><font color="#F20000">{{ finding.severity }}</font></b>
+                                        {% elif finding.severity == "Medium" %}
+                                            <b><font color="#FC7F03">{{ finding.severity }}</font></b>
+                                        {% elif finding.severity == "Low" %}
+                                            <b><font color="#05B04F">{{ finding.severity }}</font></b>
+                                        {% elif finding.severity == "Info" %}
+                                            <b><font color="#45A7F7">{{ finding.severity }}</font></b>
+                                        {% else %}
+                                            <b>{{ finding.severity }}</b> ({% translate "will not appear in the report" %})
+                                        {% endif %}
+
+                                  </td>
+                                  <td>
+                                      {{ finding.cvss_score }}
+                                  </td>
+                                  <td>
+                                      <a href="https://cwe.mitre.org/data/definitions/{{finding.cwe.cwe_id}}.html">{{ finding.cwe.cwe_id }}</a>
+                                  </td>
+                                  <td>
+                                      <a href="{{ finding.owasp.owasp_url }}">{{ finding.owasp.owasp_full_id }}</a>
+                                  </td>
+
+                                  <td align="center">
+                                      <a href="{% url 'finding_view' finding.pk %}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> {% translate "View" %}</button></a>
+
+                                      {% if user.groups.all.0|stringformat:'s' == "administrator" %}
+                                        <a href="{% url 'finding_edit' finding.pk %}"><button type="button" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> {% translate "Edit" %}</button></a>
+                                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".mm-modal-clone-{{finding.pk}}"><i class="fas fa-copy"></i> {% translate "Clone" %} </button>
+                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".mm-modal-{{finding.pk}}"><i class="fas fa-trash"></i> {% translate "Delete" %}</button>
+                                      {% endif %}
+                                      
+                                  </td>
+
+                          </tr>
+
+                          <div class="modal modal-danger fade mm-modal-{{finding.pk}}" id="modal-danger">
+                            <div class="modal-dialog">
+                              <div class="modal-content bg-danger">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">{% translate "Are you sure?" %}</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>{% translate "Delete Finding" %}&hellip;</p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">{% translate "Close" %}</button>
+
+                                  <button type="button" onclick="DeleteID({{finding.pk}});" class="btn btn-outline-light">{% translate "Delete Finding" %}</button>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="modal modal-warning fade mm-modal-clone-{{finding.pk}}" id="modal-warning">
+                            <div class="modal-dialog">
+                              <div class="modal-content bg-warning">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">{% translate "Are you sure?" %}</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>{% translate "Clone Finding" %}&hellip;</p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">{% translate "Close" %}</button>
+                                  <button type="button" onclick="DuplicateID({{finding.pk}});" class="btn btn-outline-light">{% translate "Clone Finding" %}</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {% endfor %}
+
+                        </tbody>
+                      </table>
+
+                {% endif %}
+                </div>
+               </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+
+
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+
+<script>
+  $(function () {
+    $("#findinglist").DataTable({
+      "paging": true,
+      "searching": true,
+      "responsive": true, 
+      "lengthChange": false, 
+      "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#findinglist_wrapper .col-md-6:eq(0)');
+  });
+</script>
+
+<script>
+  function DeleteID(del_id) {
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'finding_delete' %}",
+            headers:{
+              "X-CSRFToken": '{{ csrf_token }}'
+            },
+            data : { 'delete_id': del_id},
+
+            success : function(json) {
+              document.location.href = "{% url 'reportfindings' DB_report_query.pk %}";
+            }
+        })
+  }
+  function DuplicateID(dup_id) {
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'finding_duplicate' %}",
+        headers:{
+          "X-CSRFToken": '{{ csrf_token }}'
+        },
+        data : { 'duplicate_id': dup_id},
+
+        success : function(json) {
+          document.location.href = "{% url 'reportfindings' DB_report_query.pk %}";
+        }
+    })
+  }
+
+</script>
+
+{% endblock javascripts %}

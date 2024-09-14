@@ -1,0 +1,175 @@
+{% extends 'home/template.html' %}
+
+{% load i18n %}
+{% load bleach_tags %}
+{% load app_filters %}
+
+{% block title %} {% translate "Templates List" %} {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{% translate "Finding Templates list" %}</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">{% translate "Home" %}</a></li>
+              <li class="breadcrumb-item active">{% translate "Templates" %}</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">{{ DB_findings_query.count }} {% translate "Templates" %}</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <table id="templatelist" class="table table-bordered table-hover">
+              <thead>
+                  <tr>
+                    <th style="width: 50%" class="text-center">{% translate "Finding title" %}</th>
+                    <th style="width: 10%" class="text-center">{% translate "Severity" %}</th>
+                    <th style="width: 10%" class="text-center">{% translate "CVSS Score" %}</th>
+                    <th style="width: 7%" class="text-center">{% translate "CWE" %}</th>
+                    <th style="width: 7%" class="text-center">{% translate "OWASP" %}</th>
+                    <th style="width: 20%" class="text-center">{% translate "Actions" %}</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                {% for template in DB_findings_query %}
+                  <tr>
+                    <td class=" last">{{ template.title }}</td>
+
+                    <td>
+
+                          {% if template.severity == "Critical" %}
+                              <b><font color="#CC0000">{{template.severity}}</font></b>
+                          {% elif template.severity == "High" %}
+                              <b><font color="#F20000">{{template.severity}}</font></b>
+                          {% elif template.severity == "Medium" %}
+                              <b><font color="#FC7F03">{{template.severity}}</font></b>
+                          {% elif template.severity == "Low" %}
+                              <b><font color="#05B04F">{{template.severity}}</font></b>
+                          {% elif template.severity == "Info" %}
+                              <b><font color="#45A7F7">{{template.severity}}</font></b>
+                          {% else %}
+                              <b>{{template.severity}}</b>
+                          {% endif %}
+
+                    </td>
+
+                    <td>
+                        {{template.cvss_score}}
+                    </td>
+
+                    <td>
+                        <a href="https://cwe.mitre.org/data/definitions/{{template.cwe.cwe_id}}.html">{{ template.cwe.cwe_id }}</a>
+                    </td>
+
+                    <td>
+                        <a href="{{ template.owasp.owasp_url }}">{{ template.owasp.owasp_full_id }}</a>
+                    </td>
+
+
+                    <td align="center">
+                        <a href="{% url 'template_view' template.pk %}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> {% translate "View" %}</button></a>
+
+                        {% if user.groups.all.0|stringformat:'s' == "administrator" %}
+                          <a href="{% url 'template_edit' template.pk %}"><button type="button" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> {% translate "Edit" %}</button></a>
+                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".mm-modal-{{template.pk}}"><i class="fas fa-trash"></i> {% translate "Delete" %}</button>
+                        {% endif %}
+
+                    </td>
+
+
+                  </tr>
+
+                      <div class="modal modal-danger fade mm-modal-{{template.pk}}" id="modal-danger">
+                        <div class="modal-dialog">
+                          <div class="modal-content bg-danger">
+                            <div class="modal-header">
+                              <h4 class="modal-title">{% translate "Are you sure?" %}</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p>{% translate "Delete Template" %}&hellip;</p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                              <button type="button" class="btn btn-outline-light" data-dismiss="modal">{% translate "Close" %}</button>
+                              <button type="button" onclick="DeleteID({{template.pk}});" class="btn btn-outline-light">{% translate "Delete Template" %}</button>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                {% endfor %}
+
+                </tbody>
+              </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+
+<script>
+  $(function () {
+    $("#templatelist").DataTable({
+      "paging": true,
+      "searching": true,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
+      "ordering": true,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#templatelist_wrapper .col-md-6:eq(0)');
+  });
+</script>
+
+<script>
+  function DeleteID(del_id) {
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'template_delete' %}",
+            headers:{
+              "X-CSRFToken": '{{ csrf_token }}'
+            },
+            data : { 'delete_id': del_id},
+
+            success : function(json) {
+              document.location.href = "{% url 'template_list' %}";
+            }
+        })
+  }
+</script>
+
+{% endblock javascripts %}

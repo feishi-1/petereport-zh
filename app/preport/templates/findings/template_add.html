@@ -1,0 +1,342 @@
+{% extends 'home/template.html' %}
+
+{% load i18n %}
+{% load bleach_tags %}
+
+{% block title %} {% translate "Add Finding Template" %} {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+<link rel="stylesheet" href="/static/cvss-v4-calculator/spectre_petereport.css">
+<link rel="stylesheet" href="/static/cvss-v4-calculator/styles.css?v=6">
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1></h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/">{% translate "Home" %}</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'template_list' %}">{% translate "Templates" %}</a></li>
+          <li class="breadcrumb-item active">{% translate "Add Template" %}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">{% translate "Finding Template" %}</h3>
+              </div>
+              
+
+              <form role="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">{% translate "Title" %}</label>
+                      <div class="col-md-10 col-sm-10 col-xs-12">
+                        {{ form.title }}
+                      </div>
+                  </div>
+
+
+<!--
+Copyright (c) 2023 FIRST.ORG, Inc., Red Hat, and contributors
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+
+
+
+{% verbatim %}
+<div id="appCVSS">  
+
+
+  <div class="form-group row">
+    {% endverbatim %}
+      <label class="col-sm-2 col-form-label">{% translate "Severity" %}</label>
+      <div class="col-md-10 col-sm-10 col-xs-12">
+        {{ form.severity }}
+      </div>
+    {% verbatim %}
+  </div>
+
+  <div class="form-group row">
+    {% endverbatim %}
+      <label class="col-sm-2 col-form-label">{% translate "CVSS Vector" %}</label>
+      <div class="col-md-10 col-sm-10 col-xs-12">
+        {{ form.cvss_vector }}
+      </div>
+  
+    {% verbatim %}
+  </div>
+
+
+  <div class="form-group row">
+    {% endverbatim %}
+    <label class="col-sm-2 col-form-label">{% translate "CVSS Score" %}</label>
+    <div class="col-md-10 col-sm-10 col-xs-12">
+      {{ form.cvss_score }}
+    </div>
+    {% verbatim %}
+  </div>
+
+  
+  <!-- needed to update the values -->
+  <p style="color: transparent;">{{ vector }} {{ score }} {{ qualScore }} {{ macroVector }}</p>
+  
+  <div class="form-group row">
+    {% endverbatim %}
+    <label class="col-sm-2 col-form-label">{% translate "CVSS v4.0 calculator" %}</label>
+    {% verbatim %}
+    
+    <div class="col-md-10 col-sm-10 col-xs-12" :style="{'margin-top': header_height + 10 + 'px'}">
+        <div class="column col-12 col-xl-12">
+            <div class="metric-type" v-for="(metricTypeData, metricType) in cvssConfigData">
+                <h4 class="text-center">
+                    {{ metricType }}
+                    </span>
+                </h4>
+
+                
+                <div class="metric-group" v-for="(metricGroupData, metricGroup) in metricTypeData.metric_groups">
+                    <h5 class="text-center">{{ metricGroup }}</h5>
+                    <div>
+
+                        <div class="" v-for="(metricData, metric) in metricGroupData">
+
+                            <!-- Multiple ways of rendering metrics based on screen size -->
+                            <div class="columns hide-xl mb-2">
+                                <div class="col-3 text-right pr-2" v-if="metricData.tooltip"><abbr :title="metricData.tooltip">{{ metric }}</abbr>:</div>
+                                <div class="col-3 text-right pr-2" v-else>{{metric}}:</div>
+
+                                <div class="col-9 columns">
+                                    <div class="col-2 pl-2" v-for="(optionData, option) in metricData.options">
+                                        <span :class="buttonClass(cvssSelected[metricData.short] == optionData.value)" v-if="option"
+                                                @click="onButton(metricData.short, optionData.value)">
+                                            <abbr v-if="optionData.tooltip" :title="optionData.tooltip">{{ option }}</abbr>
+                                            <span v-else>{{ option }}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="show-xl hide-lg">
+                                <div class="mb-1" v-if="metricData.tooltip"><abbr :title="metricData.tooltip">{{ metric }}</abbr>:</div>
+                                <div class="mb-1" v-else>{{metric}}:</div>
+
+                                <div class="columns">
+                                    <div class="col-2 pl-2" v-for="(optionData, option) in metricData.options">
+                                        <span :class="buttonClass(cvssSelected[metricData.short] == optionData.value)" v-if="option"
+                                                @click="onButton(metricData.short, optionData.value)">
+                                            <abbr v-if="optionData.tooltip" :title="optionData.tooltip">{{ option }}</abbr>
+                                            <span v-else>{{ option }}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="show-lg hide-md">
+                                <div class="mb-1" v-if="metricData.tooltip"><abbr :title="metricData.tooltip">{{ metric }}</abbr>:</div>
+                                <div class="mb-1" v-else>{{metric}}:</div>
+
+                                <div class="columns pl-2">
+                                    <div class="col-4 pb-2 pr-2" v-for="(optionData, option) in metricData.options">
+                                        <span :class="buttonClass(cvssSelected[metricData.short] == optionData.value)" v-if="option"
+                                                @click="onButton(metricData.short, optionData.value)">
+                                            <abbr v-if="optionData.tooltip" :title="optionData.tooltip">{{ option }}</abbr>
+                                            <span v-else>{{ option }}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="show-md hide-sm">
+                                <div class="mb-1" v-if="metricData.tooltip"><abbr :title="metricData.tooltip">{{ metric }}</abbr>:</div>
+                                <div class="mb-1" v-else>{{metric}}:</div>
+
+                                <div class="columns pl-2">
+                                    <div class="col-6 pb-2 pr-2" v-for="(optionData, option) in metricData.options">
+                                        <span :class="buttonClass(cvssSelected[metricData.short] == optionData.value)" v-if="option"
+                                                @click="onButton(metricData.short, optionData.value)">
+                                            <abbr v-if="optionData.tooltip" :title="optionData.tooltip">{{ option }}</abbr>
+                                            <span v-else>{{ option }}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="show-sm">
+                                <div class="mb-1" v-if="metricData.tooltip"><abbr :title="metricData.tooltip">{{ metric }}</abbr>:</div>
+                                <div class="mb-1" v-else>{{metric}}:</div>
+
+                                <div class="columns pl-2">
+                                    <div class="col-12 pb-2 pr-2" v-for="(optionData, option) in metricData.options">
+                                        <span :class="buttonClass(cvssSelected[metricData.short] == optionData.value, true)" v-if="option"
+                                                @click="onButton(metricData.short, optionData.value)">
+                                            <abbr v-if="optionData.tooltip" :title="optionData.tooltip">{{ option }}</abbr>
+                                            <span v-else>{{ option }}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endverbatim %}
+
+                <br>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CWE</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.cwe }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">OWASP</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.owasp }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.description }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Location</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.location }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Impact</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.impact }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Recommendation</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.recommendation }}
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">References</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      {{ form.references }}
+                    </div>
+                  </div>
+
+                </div>
+
+                {% if form.errors %}
+                   {% for field in form %}
+                       {% for error in field.errors %} 
+                          <div class="container">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="alert alert-danger alert-dismissible ">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                              <h5><i class="icon fas fa-ban"></i> Error</h5>
+                              {{ field.name }}: {{ error|escape }}
+                              </div>
+                            </div>
+                          </div>
+                       {% endfor %}
+                   {% endfor %}
+                {% endif %}
+                
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-success" value="Save" name="_finish">Save and finish</button>
+                  <button type="submit" class="btn btn-primary" value="Next" name="_next">Save and add a new template</button>
+                </div>
+
+              </form>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+{% endblock content %}
+
+
+
+
+{% block javascripts %}
+  {{ block.super}}
+
+<script>
+// In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.select2CWE').select2();
+    $('.select2OWASP').select2();
+});
+</script>
+
+<script src="/static/cvss-v4-calculator/vue.global.prod.js"></script>
+<script src="/static/cvss-v4-calculator/cvss_config.js?v=2"></script>
+<script src="/static/cvss-v4-calculator/cvss_details.js?v=1"></script>
+<script src="/static/cvss-v4-calculator/cvss_lookup.js?v=5"></script>
+<script src="/static/cvss-v4-calculator/max_composed.js?v=1"></script>
+<script src="/static/cvss-v4-calculator/max_severity.js?v=1"></script>
+<script src="/static/cvss-v4-calculator/metrics.js?v=1"></script>
+<script src="/static/cvss-v4-calculator/app.js?v=7"></script>
+
+{% endblock javascripts %}
