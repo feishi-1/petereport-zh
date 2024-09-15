@@ -33,13 +33,13 @@
 - **开源优势**：开源性质，便于社区支持和技术交流，持续优化和更新。
 - **兼容性强**：支持多种操作系统和环境，兼容性强，适应不同用户需求。
 
-# 一句话启动
+# 一句话启动 | Start
 电脑先安装[docker](https://docs.docker.com/engine/install/)，安装完成后执行以下命令启动：
 ```
-docker run -d --name petereport-zh -p 8000:8000 feishi1/petereport-zh:1.0.0
+docker run -d --name petereport-zh -p 8000:8000 feishi1/petereport-zh:latest
 ```
 
-# 使用方法
+# 使用方法 | Usage
 以上命令执行后，打开浏览器。
 - 地址：`http://127.0.0.1:8000`
 - 用户名：`admin`

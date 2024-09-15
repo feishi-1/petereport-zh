@@ -83,30 +83,42 @@ django-admin compilemessages
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-2、设置代理
-``` dockerfile
-http_proxy=http://192.168.1.14:7890 \
-https_proxy=http://192.168.1.14:7890 \
 ```
-3、编译docker镜像
+2、编译docker镜像
 ```
-# amd64
-docker build -t petereport-zh:local -f ./Dockerfile . --build-arg TARGETARCH=amd64
+# 普通运行
+docker build -t petereport-zh:local -f ./Dockerfile .
 # 增加代理
-docker build -t petereport-zh:local -f ./Dockerfile . --build-arg TARGETARCH=amd64 --build-arg HTTP_PROXY="http://192.168.100.216:7890" --build-arg HTTPS_PROXY="http://192.168.100.216:7890"
+docker build -t petereport-zh:local -f ./Dockerfile . --build-arg HTTP_PROXY="http://192.168.100.145:7890" --build-arg HTTPS_PROXY="http://192.168.100.145:7890"
 ```
-4、测试本地镜像
+3、测试本地镜像
 ```
 docker stop petereport-zh
 docker rm petereport-zh
 docker run -d --name petereport-zh -p 8000:8000 petereport-zh:local
 ```
-5、发布镜像
+4、发布镜像
 ```
-docker tag petereport-zh:local feishi1/petereport-zh:1.0.0
-docker push feishi1/petereport-zh:1.0.0
+# amd64
+docker tag petereport-zh:local feishi1/petereport-zh:latest-amd64
+docker push feishi1/petereport-zh:latest-amd64
+
+# arm64
+docker tag petereport-zh:local feishi1/petereport-zh:latest-arm64
+docker push feishi1/petereport-zh:latest-arm64
+
+# 合并版本号
+docker manifest create feishi1/petereport-zh:1.0.0 feishi1/petereport-zh:latest-amd64 feishi1/petereport-zh:latest-arm64 --amend
+docker manifest inspect feishi1/petereport-zh:1.0.0
+docker manifest push feishi1/petereport-zh:1.0.0
+
+# 推送最新版本
+docker manifest create feishi1/petereport-zh:latest feishi1/petereport-zh:latest-amd64 feishi1/petereport-zh:latest-arm64 --amend
+docker manifest inspect feishi1/petereport-zh:latest
+docker manifest push feishi1/petereport-zh:latest
+
 ```
-6、运行线上镜像
+5、运行线上镜像
 ```
 docker run -d --name petereport-zh -p 8000:8000 feishi1/petereport-zh:1.0.0
 ```
