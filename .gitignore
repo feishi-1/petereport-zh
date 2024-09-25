@@ -134,4 +134,4 @@ dmypy.json
 # Linter: Ruff
 .ruff_cache
 Pipfile.lock
-app/storage_reports/pdf
+app/storage_reports/pdf/*.pdf
