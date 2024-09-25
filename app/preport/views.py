@@ -1106,10 +1106,11 @@ def reportdownloadpdf(request, template, pk):
                     severity_color = 'debugcolor'
                     severity_box = 'infobox'
 
+                severity_translated = _(finding.severity)
                 # Summary table
-                pdf_finding_summary += render_to_string(os.path.join(template_pdf_dir, 'pdf_finding_summary.md'),{'finding': finding,'counter_finding': counter_finding, 'severity_box': severity_box})
-                
-                severity_color_finding = "\\textcolor{" + f"{severity_color}" +"}{" + f"{finding.severity}" + "}"
+                pdf_finding_summary += render_to_string(os.path.join(template_pdf_dir, 'pdf_finding_summary.md'),{'finding': finding,'counter_finding': counter_finding, 'severity_box': severity_box,'severity_translated': severity_translated})
+
+                severity_color_finding = "\\textcolor{" + f"{severity_color}" +"}{" + f"{severity_translated}" + "}"
 
                 # Custom fields
                 if finding.custom_field_finding.all():

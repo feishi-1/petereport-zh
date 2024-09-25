@@ -17,6 +17,7 @@ book: false
 toc-own-page: true
 code-block-font-size: \scriptsize
 colorlinks: true
+fontName: Alibaba PuHuiTi 3.0
 
 pandoc-latex-environment:
     noteblock: [note]

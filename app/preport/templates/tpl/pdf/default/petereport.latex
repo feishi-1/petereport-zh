@@ -592,14 +592,14 @@ $endif$
   $if(fontfamily)$
   $else$
   \usepackage{xeCJK}
-  \setCJKmainfont{Alibaba PuHuiTi 3.0}
+  \setCJKmainfont{$fontName$}
   \usepackage{sourcecodepro}
   $endif$
 \else % if not pdftex
   $if(mainfont)$
   $else$
   \usepackage{xeCJK}
-  \setCJKmainfont{Alibaba PuHuiTi 3.0}
+  \setCJKmainfont{$fontName$}
   \usepackage{sourcecodepro}
 
   % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
