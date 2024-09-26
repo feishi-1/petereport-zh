@@ -34,7 +34,13 @@
 - **兼容性强**：支持多种操作系统和环境，兼容性强，适应不同用户需求。
 
 # 一句话启动 | Start
-电脑先安装[docker](https://docs.docker.com/engine/install/)，安装完成后执行以下命令启动：
+电脑先安装[docker](https://docs.docker.com/engine/install/)，安装完成后执行以下其中一条命令即可启动：
+## 国内用户可执行
+感谢[腾讯云](https://console.cloud.tencent.com/tcr/repository)为本项目提供镜像加速服务
+```
+docker run -d --name petereport-zh -p 8000:8000 ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest
+```
+## 海外用户可执行
 ```
 docker run -d --name petereport-zh -p 8000:8000 feishi1/petereport-zh:latest
 ```
