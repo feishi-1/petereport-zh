@@ -53,6 +53,7 @@ python manage.py makemigrations
 ```
 python manage.py loaddata config/cwe-list.json
 python manage.py loaddata config/owasp-list.json
+python manage.py loaddata config/finding-list.json
 ```
 
 # 3、平时运行项目

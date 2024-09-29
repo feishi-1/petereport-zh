@@ -43,6 +43,7 @@ RUN mv ./app/locale/zh_Hans/AlibabaPuHuiTi-3-55-Regular.ttf /usr/share/fonts/ \
     && pipenv run ./app/manage.py migrate \
     && pipenv run ./app/manage.py loaddata ./app/config/cwe-list.json \
     && pipenv run ./app/manage.py loaddata ./app/config/owasp-list.json \
+    && pipenv run ./app/manage.py loaddata ./app/config/finding-list.json \
     && rm -rf /var/lib/apt/lists/* \
     && pipenv --clear
 

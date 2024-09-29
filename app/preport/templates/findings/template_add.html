@@ -245,35 +245,35 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                   </div>
 
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Description</label>
+                    <label class="col-sm-2 col-form-label">{% translate "Description" %}</label>
                     <div class="col-md-10 col-sm-10 col-xs-12">
                       {{ form.description }}
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Location</label>
+                    <label class="col-sm-2 col-form-label">{% translate "Location" %}</label>
                     <div class="col-md-10 col-sm-10 col-xs-12">
                       {{ form.location }}
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Impact</label>
+                    <label class="col-sm-2 col-form-label">{% translate "Impact" %}</label>
                     <div class="col-md-10 col-sm-10 col-xs-12">
                       {{ form.impact }}
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Recommendation</label>
+                    <label class="col-sm-2 col-form-label">{% translate "Recommendation" %}</label>
                     <div class="col-md-10 col-sm-10 col-xs-12">
                       {{ form.recommendation }}
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">References</label>
+                    <label class="col-sm-2 col-form-label">{% translate "References" %}</label>
                     <div class="col-md-10 col-sm-10 col-xs-12">
                       {{ form.references }}
                     </div>
@@ -298,8 +298,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 {% endif %}
                 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success" value="Save" name="_finish">Save and finish</button>
-                  <button type="submit" class="btn btn-primary" value="Next" name="_next">Save and add a new template</button>
+                  <button type="submit" class="btn btn-success" value="Save" name="_finish">{% translate "Save and finish" %}</button>
+                  <button type="submit" class="btn btn-primary" value="Next" name="_next">{% translate "Save and add a new finding" %}</button>
                 </div>
 
               </form>
