@@ -5,59 +5,43 @@
 ::: {{icon_finding}}
 **{% translate "Severity" %}:** {{severity_color_finding}}
 
-{% if finding.cvss_score != "0" %}
-**{% translate "CVSS Score" %}:** {{finding.cvss_score|safe}}
-{% endif %}
+**{% translate "CWE" %}:** {{finding.cwe.cwe_id}} - {{finding.cwe.cwe_name|safe}}
 
-{% if finding.cvss_vector != "0" %}
-**{% translate "CVSS Vector" %}:** {{finding.cvss_vector|safe}}
-{% endif %}
+**{% translate "OWASP" %}:** {{finding.owasp.owasp_id|safe}} - {{finding.owasp.owasp_name|safe}}
 :::
 
-{% if finding.cwe %}
-**{% translate "CWE" %}**
-
-{{finding.cwe.cwe_id}} - {{finding.cwe.cwe_name|safe}}
-{% endif %}
-
-{% if finding.owasp %}
-**{% translate "OWASP" %}**
-
-{{finding.owasp.owasp_id|safe}} - {{finding.owasp.owasp_name|safe}}
-{% endif %}
-
 {% if finding.description %}
-**【{% translate "Description" %}**】
+**【{% translate "Description" %}】**
 
 {{finding.description|safe}}
 {% endif %}
 
 {% if finding.location %}
-**【{% translate "Location" %}**】
+**【{% translate "Location" %}】**
 
 {{finding.location|safe}}
 {% endif %}
 
 {% if finding.impact and finding.impact != "请在此处输入内容"%}
-**【{% translate "Impact" %}**】
+**【{% translate "Impact" %}】**
 
 {{finding.impact|safe}}
 {% endif %}
 
 {% if finding.poc %}
-**【{% translate "Proof of Concept" %}**】
+**【{% translate "Proof of Concept" %}】**
 
 {{finding.poc|safe}}
 {% endif %}
 
 {% if finding.recommendation %}
-**【{% translate "Recommendation" %}**】
+**【{% translate "Recommendation" %}】**
 
 {{finding.recommendation|safe}}
 {% endif %}
 
 {% if finding.references and finding.references != "请在此处输入内容"%}
-**【{% translate "References" %}**】
+**【{% translate "References" %}】**
 
 {{finding.references|safe}}
 {% endif %}

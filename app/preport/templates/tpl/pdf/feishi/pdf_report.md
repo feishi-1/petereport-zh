@@ -14,6 +14,7 @@
 ### {% translate "Breakdown by Severity" %}
 ![]({{report_executive_summary_image}})
 
+{% if template_findings %}
 ### {% translate "Breakdown by CWE Categories" %}
 ![]({{report_cwe_categories_image}})
 
@@ -22,7 +23,7 @@
 
 ## {% translate "Findings" %}
 {{pdf_finding_summary}}
-
+{% endif %}
 ## {% translate "Scope" %}
 
 ### {% translate "In Scope" %}
@@ -41,11 +42,12 @@
 
 {{DB_report_query.recommendation | safe}}
 
+{% if template_findings %}
 \pagebreak
 # {% translate "Findings and Risk Analysis" %}
 
 {{template_findings}}
-
+{% endif %}
 \pagebreak
 {{template_appendix}}
 
