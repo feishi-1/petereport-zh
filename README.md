@@ -52,16 +52,20 @@ docker run -d --name petereport-zh -p 8000:8000 feishi1/petereport-zh:latest
 - 密码：`P3t3r3p0rt`
 
 <p align="center">
-   <img src="./images/1.png" width="40%">
-   <img src="./images/2.png" width="40%" style="margin-left: 5%">
+   <img src="./images/1.png" width="45%">
+   <img src="./images/2.png" width="45%" style="margin-left: 5%">
 </p>
 <p align="center">
-   <img src="./images/5.png" width="40%">
-   <img src="./images/6.png" width="40%" style="margin-left: 5%">
+   <img src="./images/3.png" width="45%">
+   <img src="./images/4.png" width="45%" style="margin-left: 5%">
 </p>
 <p align="center">
-   <img src="./images/3.png" width="40%">
-   <img src="./images/4.png" width="40%" style="margin-left: 5%">
+   <img src="./images/5.png" width="45%">
+   <img src="./images/6.png" width="45%" style="margin-left: 5%">
+</p>
+<p align="center">
+   <img src="./images/7.png" width="45%">
+   <img src="./images/8.png" width="45%" style="margin-left: 5%">
 </p>
 
 # 期望 | Futures

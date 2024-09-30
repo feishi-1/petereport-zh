@@ -135,3 +135,4 @@ dmypy.json
 .ruff_cache
 Pipfile.lock
 app/storage_reports/pdf/*.pdf
+company_picture_*.png

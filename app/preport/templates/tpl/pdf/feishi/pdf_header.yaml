@@ -8,7 +8,7 @@ subject: "{{md_subject}}"
 subtitle: "{{DB_report_query.report_id}}"
 lang: "{{report_pdf_language}}"
 titlepage: true
-titlepage-color: "{{titlepagecolor}}"
+titlepage-color: "ffffff"
 titlepage-text-color: "{{titlepagetextcolor}}"
 titlepage-rule-color: "{{titlerulecolor}}"
 titlepage-rule-height: "{{titlepageruleheight}}"

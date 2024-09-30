@@ -1054,9 +1054,10 @@ def reportdownloadpdf(request, template, pk):
         md_author = DB_Settings.objects.get().company_name
         md_subject = DB_Settings.objects.get().report_subject
         md_website = DB_Settings.objects.get().company_website
-        
+        company_picture = DB_Settings.objects.get().company_picture
+
         counter_finding = counter_finding_critical = counter_finding_high = counter_finding_medium = counter_finding_low = counter_finding_info = 0
-        title_background_image = os.path.join(template_pdf_dir, PETEREPORT_TEMPLATES['report_pdf_title_background'])
+        title_background_image = os.path.join(MEDIA_ROOT, str(company_picture))
         pages_background_image = os.path.join(template_pdf_dir, PETEREPORT_TEMPLATES['report_pdf_pages_background'])
 
         # Appendix
