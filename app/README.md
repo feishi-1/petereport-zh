@@ -109,9 +109,9 @@ docker tag petereport-zh:local feishi1/petereport-zh:latest-arm64
 docker push feishi1/petereport-zh:latest-arm64
 
 # 合并版本号
-docker manifest create feishi1/petereport-zh:1.0.3 feishi1/petereport-zh:latest-amd64 feishi1/petereport-zh:latest-arm64 --amend
-docker manifest inspect feishi1/petereport-zh:1.0.3
-docker manifest push feishi1/petereport-zh:1.0.3
+docker manifest create feishi1/petereport-zh:1.0.4 feishi1/petereport-zh:latest-amd64 feishi1/petereport-zh:latest-arm64 --amend
+docker manifest inspect feishi1/petereport-zh:1.0.4
+docker manifest push feishi1/petereport-zh:1.0.4
 
 # 推送最新版本
 docker manifest rm feishi1/petereport-zh:latest
@@ -130,9 +130,9 @@ docker tag petereport-zh:local ccr.ccs.tencentyun.com/feishi1/petereport-zh:late
 docker push ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest-arm64
 
 # 合并版本号
-docker manifest create ccr.ccs.tencentyun.com/feishi1/petereport-zh:1.0.3 ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest-amd64 ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest-arm64 --amend
-docker manifest inspect ccr.ccs.tencentyun.com/feishi1/petereport-zh:1.0.3
-docker manifest push ccr.ccs.tencentyun.com/feishi1/petereport-zh:1.0.3
+docker manifest create ccr.ccs.tencentyun.com/feishi1/petereport-zh:1.0.4 ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest-amd64 ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest-arm64 --amend
+docker manifest inspect ccr.ccs.tencentyun.com/feishi1/petereport-zh:1.0.4
+docker manifest push ccr.ccs.tencentyun.com/feishi1/petereport-zh:1.0.4
 
 # 推送最新版本
 docker manifest rm ccr.ccs.tencentyun.com/feishi1/petereport-zh:latest

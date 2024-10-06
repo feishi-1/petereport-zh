@@ -51,6 +51,9 @@ docker run -d --name petereport-zh -p 8000:8000 feishi1/petereport-zh:latest
 - 用户名：`admin`
 - 密码：`P3t3r3p0rt`
 
+这里有一个简单的视频介绍，可以帮助你快速上手：
+> 视频地址：[https://www.bilibili.com/video/BV19S1iY5E4R](https://www.bilibili.com/video/BV19S1iY5E4R)
+
 <p align="center">
    <img src="./images/1.png" width="45%">
    <img src="./images/2.png" width="45%" style="margin-left: 5%">
