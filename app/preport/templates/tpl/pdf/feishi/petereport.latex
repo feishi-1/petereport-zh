@@ -885,18 +885,21 @@ $endif$
 {
   \setstretch{2}
   \vfill
-  \vskip 12em
+  \vskip 6em
   \begin{center}
-  \noindent {\Huge \textbf{\textsf{$product$}}}
-  \vskip 1em
-  \noindent {\Huge \textbf{\textsf{$title$}}}
-  $if(subtitle)$
-  \vskip 1em
-  {\Large \textsf{$subtitle$}}
-  $endif$
-  \vskip 32em
-  \noindent {\Large \textsf{$authorName$}}
-  \vskip 0em
+  \noindent {\fontsize{27pt}{30pt}\selectfont \textbf{\textsf{$title$}}}
+  \vskip 18em
+
+  \noindent
+  \begin{tabular}{@{}p{10cm}@{}}
+  \makebox[10cm][s]{\Large \textsf{系统名称：$product$}} \\
+  \makebox[10cm][s]{\Large \textsf{委托单位：$customerName$}} \\
+  \makebox[10cm][s]{\Large \textsf{测评单位：$authorName$}} \\
+  \makebox[10cm][s]{\Large \textsf{报告编号：$subtitle$}}
+  \end{tabular}
+
+  \vskip 22em
+
   \noindent {\Large \textsf{$date$}}
   \end{center}
   \vfill

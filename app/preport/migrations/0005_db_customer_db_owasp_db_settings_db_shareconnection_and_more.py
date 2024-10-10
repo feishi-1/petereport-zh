@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
         DBCustomer = self.get_model("preport", "DB_Customer")
 
         customer = DBCustomer(
-                name = "Customer",
-                contact = "admin@customer",
-                description = "Customer",
+                name = "某某省某某市某某客户单位名称",
+                contact = "moumou@moumou.com",
+                description = "某某省某某市某某客户单位名称",
             )
 
         customer.save()

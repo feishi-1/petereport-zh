@@ -1,6 +1,7 @@
 ---
 title: "{{DB_report_query.title}}"
 product: "{{DB_report_query.product.name}}"
+customerName: "{{DB_report_query.product.customer.name}}"
 author: ["{{md_author}}", "{{md_website}}"]
 authorName: "{{md_author}}"
 date: "{{report_date}}"

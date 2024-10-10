@@ -573,7 +573,9 @@ def report_list(request):
 def report_add(request):
 
     today = datetime.date.today().strftime('%Y-%m-%d')
-    report_id_format = PETEREPORT_TEMPLATES['report_id_format'] + str(datetime.datetime.utcnow().strftime('%Y%m%d%H%M'))
+
+    report_id_format = PETEREPORT_TEMPLATES['report_id_format']
+    report_id_format = report_id_format.format(date=datetime.date.today().strftime('%Y'), number=str(datetime.datetime.utcnow().strftime('%m%d%H')))
 
     if request.method == 'POST':
         form = NewReportForm(request.POST)
@@ -588,6 +590,7 @@ def report_add(request):
     else:
         form = NewReportForm()
         form.fields['report_id'].initial = report_id_format
+        form.fields['title'].initial = PETEREPORT_TEMPLATES['report_title']
         form.fields['executive_summary'].initial = PETEREPORT_TEMPLATES['initial_text']
         form.fields['scope'].initial = PETEREPORT_TEMPLATES['initial_text']
         form.fields['outofscope'].initial = PETEREPORT_TEMPLATES['initial_text']
