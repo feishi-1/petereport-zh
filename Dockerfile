@@ -47,5 +47,6 @@ RUN mv ./app/locale/zh_Hans/AlibabaPuHuiTi-3-55-Regular.ttf /usr/share/fonts/ \
     && rm -rf /var/lib/apt/lists/* \
     && pipenv --clear
 
+WORKDIR /opt/petereport/app
 # Start the application
-CMD ["pipenv", "run", "./app/manage.py", "runserver", "0.0.0.0:8000", "--insecure"]
+CMD ["pipenv", "run", "./manage.py", "runserver", "0.0.0.0:8000", "--insecure"]
